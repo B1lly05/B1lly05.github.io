@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio personal de Billy">
+    <meta name="theme-color" content="#2563eb">
+    <title>Portfolio de Billy</title>
+    
+    <!-- Importamos una fuente moderna de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================
+           VARIABLES Y CONFIGURACIÓN BASE
+           ========================================= */
+        :root {
+            --primary-color: #2563eb; /* Azul moderno */
+            --primary-hover: #1d4ed8;
+            --bg-color: #f8fafc;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --card-bg: #ffffff;
+            --border-radius: 12px;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en el menú */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* =========================================
+           ENCABEZADO Y NAVEGACIÓN
+           ========================================= */
+        header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+            max-width: fit-content;
+            margin: 0 auto;
+            backdrop-filter: blur(10px);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 5px 10px;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+
+        nav a:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        hr {
+            display: none; /* Ocultamos las líneas feas por defecto */
+        }
+
+        /* =========================================
+           CONTENEDOR PRINCIPAL Y SECCIONES
+           ========================================= */
+        main {
+            max-width: 900px;
+            margin: -2rem auto 2rem; /* Sube un poco para superponerse al header */
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        section {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* =========================================
+           SOBRE MÍ
+           ========================================= */
+        #sobre-mi {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        #sobre-mi img {
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: var(--shadow);
+            object-fit: cover;
+        }
+
+        /* =========================================
+           PROYECTOS (ARTÍCULOS)
+           ========================================= */
+        article {
+            background-color: var(--bg-color);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.5rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        article:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow);
+        }
+
+        article h4 {
+            margin: 0 0 10px 0;
+            font-size: 1.2rem;
+            color: #b3ff00;
+        }
+
+        article p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* =========================================
+           MULTIMEDIA (VIDEO)
+           ========================================= */
+        #multimedia iframe {
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* =========================================
+           FORMULARIOS
+           ========================================= */
+        fieldset {
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background: #f8fafc;
+        }
+
+        legend {
+            font-weight: 600;
+            color: var(--primary-color);
+            background: var(--card-bg);
+            padding: 0 10px;
+            border-radius: 4px;
+            border: 1px solid #cbd5e1;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-family: inherit;
+            margin-bottom: 15px;
+            box-sizing: border-box; /* Para que el padding no desborde */
+            transition: var(--transition);
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+        }
+
+        /* =========================================
+           BOTONES
+           ========================================= */
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        /* =========================================
+           MODAL (DIALOG)
+           ========================================= */
+        dialog {
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            max-width: 400px;
+        }
+
+        dialog::backdrop {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+        }
+
+        dialog h2 {
+            border: none;
+            margin-top: 0;
+            padding-bottom: 0;
+        }
+
+        /* =========================================
+           DETALLES (FAQ)
+           ========================================= */
+        details {
+            background: #f8fafc;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        summary {
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+            color: var(--text-main);
+        }
+
+        details p {
+            margin-top: 10px;
+            margin-bottom: 0;
+            color: var(--text-muted);
+            padding-left: 20px;
+        }
+
+        /* =========================================
+           PIE DE PÁGINA
+           ========================================= */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer address {
+            font-style: normal;
+            margin-top: 10px;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Responsive para móviles */
+        @media (max-width: 600px) {
+            #sobre-mi {
+                flex-direction: column;
+                text-align: center;
+            }
+            main { margin-top: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ENCABEZADO Y NAVEGACIÓN -->
+    <header>
+        <h1>Portfolio de Billy</h1>
+        <p><strong>Ingeniero de Software</strong> con ganas de aportar valor e innovar.</p>
+        <nav>
+            <a href="#sobre-mi">Sobre mí</a>
+            <a href="#experiencia">Experiencia</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#contacto">Contacto</a>
+            <a href="https://github.com/[tu-usuario]" target="_blank" rel="noreferrer">GitHub</a>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+
+        <!-- SECCIÓN: SOBRE MÍ -->
+        <section id="sobre-mi">
+            <img src="Billy.png" alt="Fotografía de perfil de Billy" width="150" title="Foto de perfil">
+            <div>
+                <h2>Sobre mí</h2>
+                <p>Hola, soy Billy. Soy un estudiante de Ingeniería de Software que busca  desarrollar sus habilidades y contribuir al mundo de la tecnología. En este espacio recopilo mi experiencia y mis proyectos más destacados, donde he aplicado conocimientos de diferentes lenguajes de programación para crear soluciones funcionales.</p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: EXPERIENCIA -->
+        <section id="experiencia">
+            <h2>Experiencia Educativa</h2>
+            <ul>
+                <li><strong>Universidad de Castilla-La Mancha (ESIIAB)</strong> - Estudiante de Ingeniería de Software (2023 - 2027)</li>
+            </ul>
+        </section>
+
+        <!-- SECCIÓN: PROYECTOS -->
+        <section id="proyectos">
+            <h2>Proyectos realizados</h2>
+            
+            <article>
+                <header>
+                    <h4>Gestión de una empresa en C</h4>
+                </header>
+                <p>Desarrollé un sistema en C para gestionar la información de 20 empleados. El programa permite almacenar IDs, registrar horas de entrada y salida, calcular el salario mensual basado en horas trabajadas y automatizar el cálculo de finiquitos en caso de despido.</p>
+            </article>
+
+            <article>
+                <header>
+                    <h4>Sistema de Farmacia en Java</h4>
+                </header>
+                <p>Trabajé en equipo para desarrollar el software de gestión de una farmacia. Implementamos un sistema donde cada fármaco dispensado actualizaba el inventario, calculando de manera dinámica la nueva posición de los productos restantes mediante algoritmos estructurados.</p>
+            </article>
+            
+            <article>
+                <header>
+                    <h4>Laberinto en Python</h4>
+                </header>
+                <p>Programé un videojuego de escape de un laberinto jugable tanto en terminal como en interfaz gráfica. El juego integra mecánicas de exploración, recolección de botín (loot) y un sistema de combate básico contra enemigos generados en el mapa.</p>
+            </article>
+        </section>
+          
+        <!-- SECCIÓN: MULTIMEDIA -->
+        <section id="multimedia">
+            <h2>Multimedia</h2>
+            <p>Aquí puedes ver una demostración en vídeo del funcionamiento de mi juego del laberinto en Python:</p>
+            <!-- Nota: Cambiado a formato /embed/ para que iframe funcione correctamente -->
+            <iframe style="width:100%; max-width:600px; aspect-ratio:16/9;" src="https://www.youtube.com/embed/yu808ouQQac" title="Video Laberinto" allowfullscreen></iframe>
+        </section>
+
+        <!-- SECCIÓN: PREGUNTAS FRECUENTES -->
+        <section id="faq">
+            <h2>Preguntas frecuentes</h2>
+            <details>
+                <summary>¿Estás disponible para nuevos proyectos o prácticas?</summary>
+                <p>Sí, actualmente busco oportunidades para aplicar mis conocimientos académicos en entornos reales y seguir aprendiendo.</p>
+            </details>
+            <details>
+                <summary>¿Cuál es tu método de contacto preferido?</summary>
+                <p>El formulario de contacto de esta web o a través de mi correo electrónico directo que puedes encontrar en el pie de página.</p>
+            </details>
+        </section>
+
+        <!-- SECCIÓN: FORMULARIO DE CONTACTO -->
+        <section id="contacto">
+            <h2>Formulario de contacto</h2>
+            <form method="post" action="/">
+                <fieldset>
+                    <legend>Información personal</legend>
+                    
+                    <label for="name">Nombre completo:</label>
+                    <input type="text" id="name" name="name" placeholder="Ej. Ana García" required>
+                    
+                    <label for="em">Correo Electrónico:</label>
+                    <input type="email" id="em" name="email" placeholder="correo@ejemplo.com" required>
+                </fieldset>
+                
+                <fieldset>
+                    <legend>Motivo del contacto</legend>
+                    
+                    <label for="why">¿Sobre qué quieres contactar?:</label>
+                    <select name="why" id="why">
+                        <option value="" disabled selected>Selecciona una opción...</option>
+                        <option value="1">Oferta de Prácticas / Trabajo</option>
+                        <option value="2">Consulta sobre un proyecto</option>
+                        <option value="3">Otros</option>
+                    </select>
+
+                </fieldset>
+                <button type="submit">Enviar mensaje</button>
+            </form>
+        </section>
+        
+        <!-- DIÁLOGO MODAL NATIVO (HTML SEMÁNTICO) -->
+        <section style="text-align: center; padding: 3rem 1rem;">
+            <h2>¿Tienes prisa?</h2>
+            <p>Echa un vistazo a un resumen rápido de mi perfil profesional.</p>
+            <button id="show">Ver Resumen Ejecutivo (Modal)</button>
+            
+            <dialog id="modal">
+                <h2>Resumen Ejecutivo</h2>
+                <p>Estudiante de Ingeniería de Software altamente motivado, con conocimientos medios en programación backend (C, Java, Python). Busco constante crecimiento y aprendizaje para resolver problemas técnicos complejos.</p>
+                <div style="text-align: right; margin-top: 20px;">
+                    <button id="cerrar" style="background-color: #64748b;">Cerrar</button>
+                </div>
+            </dialog>
+
+            <script>
+                const btnShow = document.getElementById('show');
+                const btnCerrar = document.getElementById('cerrar');
+                const modal = document.getElementById('modal');
+
+                btnShow.addEventListener('click', () => {
+                    modal.showModal();
+                });
+
+                btnCerrar.addEventListener('click', () => {
+                    modal.close();
+                });
+            </script>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>&copy; 2026 Portfolio de Billy. Todos los derechos reservados.</p>
+        <address>
+            Contacto directo: <a href="mailto:billalchal446@gmail.com">billalchal446@gmail.com</a>
+        </address>
+    </footer>
+
+</body>
+</html>
